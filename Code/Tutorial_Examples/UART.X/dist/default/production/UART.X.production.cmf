@@ -1,0 +1,466 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\desktop\AppData\Local\Temp\s89g.obj
+end_init CODE 0 0 0 3 2
+config CONFIG 0 2007 2007 1 2
+$dist/default/production\UART.X.production.obj
+cinit CODE 0 7FC 7FC 4 2
+text8 CODE 0 4A0 4A0 5E 2
+text7 CODE 0 448 448 58 2
+text6 CODE 0 41C 41C 16 2
+text5 CODE 0 3EB 3EB 9 2
+text4 CODE 0 3F4 3F4 13 2
+text3 CODE 0 4FE 4FE F1 2
+text2 CODE 0 407 407 15 2
+text1 CODE 0 5EF 5EF 20D 2
+maintext CODE 0 432 432 16 2
+cstackBANK0 BANK0 1 20 20 37 1
+cstackCOMMON COMMON 1 70 70 E 1
+strings STRING 0 3 3 3D 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 0057-006F 1
+BANK1 00A0-00EF 1
+BANK2 0110-016F 1
+BANK3 0190-01EF 1
+CODE 0040-03EA 2
+CODE 0800-1FFF 2
+CONST 0040-03EA 2
+CONST 0800-1FFF 2
+EEDATA 2100-21FF 2
+ENTRY 0040-03EA 2
+ENTRY 0800-1FFF 2
+IDLOC 2000-2003 2
+RAM 0057-006F 1
+RAM 00A0-00EF 1
+RAM 0110-016F 1
+RAM 0190-01EF 1
+SFR0 0000-001F 1
+SFR1 0080-009F 1
+SFR2 0100-010F 1
+SFR3 0180-018F 1
+STACK 0110-016F 1
+STRCODE 0040-03EA 2
+STRCODE 0800-1FFF 2
+STRING 0040-03EA 2
+STRING 0800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\UART.X.production.obj
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":145 3EB text5 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":147 3EC text5 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":148 3F0 text5 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":149 3F1 text5 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":150 3F3 text5 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":4 3F4 text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":6 3F7 text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":43 3F8 text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":44 3FA text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":45 3FE text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":46 400 text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":47 402 text4 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c":50 405 text4 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":169 407 text2 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":171 408 text2 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":172 40E text2 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":171 41B text2 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":66 41C text6 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":68 41C text6 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":69 420 text6 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":70 422 text6 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":71 426 text6 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":72 431 text6 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code\Tutorial_Examples\UART.X\main.c":10 432 maintext CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code\Tutorial_Examples\UART.X\main.c":12 432 maintext CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code\Tutorial_Examples\UART.X\main.c":16 441 maintext CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code\Tutorial_Examples\UART.X\main.c":14 447 maintext CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":91 448 text7 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":95 448 text7 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":99 46A text7 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":104 497 text7 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":107 49B text7 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":108 49F text7 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":6 4A0 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":14 4A0 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":15 4A8 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":16 4AE text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":17 4B0 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":18 4B2 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":19 4BB text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":17 4BF text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":22 4C0 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":23 4C9 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":24 4D9 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":25 4E7 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":27 4E8 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":28 4F1 text8 CODE
+"C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c":30 4F5 text8 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":260 4FE text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":262 501 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":264 502 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":270 507 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":271 538 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":272 53F text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":266 543 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":275 547 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":280 54D text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":281 551 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":284 552 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":288 559 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":296 55F text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":297 58F text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":298 5B3 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":300 5B4 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":311 5BC text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":284 5C1 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":318 5C6 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":319 5E7 text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":315 5EB text3 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":413 5EF text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":429 5F2 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":432 5F6 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":435 604 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":436 60E text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":438 612 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":439 616 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":440 620 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":442 628 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":443 629 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":445 631 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":446 642 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":447 646 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":443 650 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":452 651 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":456 655 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":460 656 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":465 661 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":466 66E text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":468 670 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":469 675 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":471 67B text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":472 690 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":475 691 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":476 6A4 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":478 6A6 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":479 6B1 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":481 6B7 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":482 6CB text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":485 6CC text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":486 6D9 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":487 6E9 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":490 6EA text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":491 6FD text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":492 70F text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":495 710 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":496 71D text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":497 72D text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":500 72E text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":501 741 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":502 753 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":506 754 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":508 761 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":509 765 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":511 769 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":512 779 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":515 77A text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":517 78D text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":518 791 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":520 795 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":530 7A7 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":535 7A8 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":536 7B4 text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":537 7BA text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":540 7BB text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":456 7BD text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":543 7EE text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":547 7EF text1 CODE
+"H:\Github\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c":432 7F5 text1 CODE
+"C:\Users\desktop\AppData\Local\Temp\s89g.":551 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s89g.":554 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s89g.":560 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s89g.":561 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s89g.":562 7FD cinit CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___lldiv@counter 7D 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+__size_of_UART_TxString 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+UART_Printf@argList 46 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__size_of_UART_TxNumber 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+_UART_TxChar 7D6 0 CODE 0 text5 dist/default/production\UART.X.production.obj
+__S0 2008 0 ABS 0 - -
+__S1 7E 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+UART_SetBaudRate@RegValue 29 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__Hintentry 0 0 CODE 0 intentry -
+__Lintentry 0 0 CODE 0 intentry -
+_RCIF 65 0 ABS 0 - dist/default/production\UART.X.production.obj
+__size_of_UART_Printf 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TXIF 64 0 ABS 0 - dist/default/production\UART.X.production.obj
+__end_of_UART_TxString 838 0 CODE 0 text2 dist/default/production\UART.X.production.obj
+__end_of_UART_TxNumber BDE 0 CODE 0 text3 dist/default/production\UART.X.production.obj
+_main 864 0 CODE 0 maintext dist/default/production\UART.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s89g.obj
+btemp 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+ltemp 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+ttemp 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+start 0 0 CODE 0 init C:\Users\desktop\AppData\Local\Temp\s89g.obj
+_UART_TxNumber 9FC 0 CODE 0 text3 dist/default/production\UART.X.production.obj
+_RCREG 1A 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TRISA 85 0 ABS 0 - dist/default/production\UART.X.production.obj
+_RCSTA 18 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TRISB 86 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TRISC 87 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TXREG 19 0 ABS 0 - dist/default/production\UART.X.production.obj
+_PORTA 5 0 ABS 0 - dist/default/production\UART.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\desktop\AppData\Local\Temp\s89g.obj
+_TRISD 88 0 ABS 0 - dist/default/production\UART.X.production.obj
+_PORTB 6 0 ABS 0 - dist/default/production\UART.X.production.obj
+_SPBRG 99 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TXSTA 98 0 ABS 0 - dist/default/production\UART.X.production.obj
+_TRISE 89 0 ABS 0 - dist/default/production\UART.X.production.obj
+_PORTC 7 0 ABS 0 - dist/default/production\UART.X.production.obj
+_PORTD 8 0 ABS 0 - dist/default/production\UART.X.production.obj
+_PORTE 9 0 ABS 0 - dist/default/production\UART.X.production.obj
+UART_TxString@ptr_string 72 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+ltemp0 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp0 7E 0 ABS 0 - dist/default/production\UART.X.production.obj
+ltemp1 82 0 ABS 0 - dist/default/production\UART.X.production.obj
+ttemp1 81 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp1 80 0 ABS 0 - dist/default/production\UART.X.production.obj
+ltemp2 86 0 ABS 0 - dist/default/production\UART.X.production.obj
+ttemp2 84 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp2 82 0 ABS 0 - dist/default/production\UART.X.production.obj
+ltemp3 80 0 ABS 0 - dist/default/production\UART.X.production.obj
+ttemp3 87 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp3 84 0 ABS 0 - dist/default/production\UART.X.production.obj
+ttemp4 7F 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp4 86 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp5 88 0 ABS 0 - dist/default/production\UART.X.production.obj
+wtemp6 7F 0 ABS 0 - dist/default/production\UART.X.production.obj
+__Hconfig 4010 0 CONFIG 0 config -
+__Lconfig 400E 0 CONFIG 0 config -
+__end_of__stringtab 12 0 STRING 0 strings dist/default/production\UART.X.production.obj
+UART_Printf@ptr 53 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__end_of__stringdata 80 0 STRING 0 strings dist/default/production\UART.X.production.obj
+_UART_Printf BDE 0 CODE 0 text1 dist/default/production\UART.X.production.obj
+__Hfunctab 0 0 CODE 0 functab -
+__Lfunctab 0 0 CODE 0 functab -
+__Hcommon 0 0 ABS 0 common -
+__Lcommon 0 0 ABS 0 common -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__size_of_UART_Init 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+_UART_TxNumber$147 3F 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s89g.obj
+?___lldiv 70 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+UART_Printf@v_num_s32 47 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+UART_Printf@v_num_u32 4D 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+UART_Printf@v_num_s16 4B 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+UART_Printf@v_num_u16 51 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Labs1 0 0 ABS 0 abs1 -
+UART_TxNumber@v_numericSystem_u8 41 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__size_of_UART_SetBaudRate 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__end_of_UART_Init 864 0 CODE 0 text6 dist/default/production\UART.X.production.obj
+__Hcode 0 0 ABS 0 code -
+__Lcode 0 0 ABS 0 code -
+stackhi 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s89g.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+stacklo 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s89g.obj
+___bmul 7E8 0 CODE 0 text4 dist/default/production\UART.X.production.obj
+__Hinit 0 0 CODE 0 init -
+__Linit 0 0 CODE 0 init -
+__end_of_main 890 0 CODE 0 maintext dist/default/production\UART.X.production.obj
+__Htext 0 0 ABS 0 text -
+__Ltext 0 0 ABS 0 text -
+___bmul@multiplier 23 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+UART_TxNumber@v_numOfDigitsToTransmit_u8 28 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__CFG_LVP$ON 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+?_UART_Printf 70 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production\UART.X.production.obj
+_UART_Init 838 0 CODE 0 text6 dist/default/production\UART.X.production.obj
+___bmul@multiplicand 20 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__stringtab 6 0 STRING 0 strings dist/default/production\UART.X.production.obj
+__Hstrings 0 0 ABS 0 strings -
+__Lstrings 0 0 ABS 0 strings -
+__pstrings 6 0 STRING 0 strings dist/default/production\UART.X.production.obj
+UART_Printf@str 45 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+_UART_TxString 80E 0 CODE 0 text2 dist/default/production\UART.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Lbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Lbank3 0 0 ABS 0 bank3 -
+___latbits 2 0 ABS 0 - dist/default/production\UART.X.production.obj
+__Hpowerup 0 0 CODE 0 powerup -
+__Lpowerup 0 0 CODE 0 powerup -
+__ptext1 BDE 0 CODE 0 text1 dist/default/production\UART.X.production.obj
+__ptext2 80E 0 CODE 0 text2 dist/default/production\UART.X.production.obj
+__ptext3 9FC 0 CODE 0 text3 dist/default/production\UART.X.production.obj
+__ptext4 7E8 0 CODE 0 text4 dist/default/production\UART.X.production.obj
+__ptext5 7D6 0 CODE 0 text5 dist/default/production\UART.X.production.obj
+__end_of_UART_Printf FF8 0 CODE 0 text1 dist/default/production\UART.X.production.obj
+__ptext6 838 0 CODE 0 text6 dist/default/production\UART.X.production.obj
+UART_SetBaudRate@v_baudRate_u32 20 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__ptext7 890 0 CODE 0 text7 dist/default/production\UART.X.production.obj
+__ptext8 940 0 CODE 0 text8 dist/default/production\UART.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lclrtext 0 0 ABS 0 clrtext -
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production\UART.X.production.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__Lstack 0 0 STACK 2 stack -
+__end_of___lldiv 9FC 0 CODE 0 text8 dist/default/production\UART.X.production.obj
+__Hspace_0 2008 0 ABS 0 - -
+__Lspace_0 0 0 ABS 0 - -
+__Hspace_1 7E 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Hcinit 1000 0 CODE 0 cinit -
+__Lcinit FF8 0 CODE 0 cinit -
+__CFG_FOSC$HS 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+___lldiv 940 0 CODE 0 text8 dist/default/production\UART.X.production.obj
+__Hspace_3 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__size_of_main 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+UART_TxChar@v_uartData_u8 70 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+__end_of_UART_SetBaudRate 940 0 CODE 0 text7 dist/default/production\UART.X.production.obj
+UART_TxNumber@i 42 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+UART_Printf@ch 54 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__Hend_init 6 0 CODE 0 end_init -
+__Lend_init 0 0 CODE 0 end_init -
+UART_Printf@argp 56 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+___lldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+__size_of___lldiv 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__size_of_UART_TxChar 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+UART_Printf@v_numOfDigitsToTransmit_u8 55 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__stringdata 12 0 STRING 0 strings dist/default/production\UART.X.production.obj
+_UART_SetBaudRate 890 0 CODE 0 text7 dist/default/production\UART.X.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s89g.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+intlevel1 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s89g.obj
+intlevel2 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s89g.obj
+intlevel3 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s89g.obj
+intlevel4 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s89g.obj
+intlevel5 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s89g.obj
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+UART_TxNumber@v_number_u32 24 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+start_initialization FF8 0 CODE 0 cinit dist/default/production\UART.X.production.obj
+___lldiv@quotient 79 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+UART_TxNumber@a 35 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__Lmaintext 0 0 ABS 0 maintext -
+__pmaintext 864 0 CODE 0 maintext dist/default/production\UART.X.production.obj
+__initialization FF8 0 CODE 0 cinit dist/default/production\UART.X.production.obj
+__end_of_UART_TxChar 7E8 0 CODE 0 text5 dist/default/production\UART.X.production.obj
+__stringbase 10 0 STRING 0 strings dist/default/production\UART.X.production.obj
+___bmul@product 22 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+UART_Init@v_baudRate_u32 2A 0 BANK0 1 cstackBANK0 dist/default/production\UART.X.production.obj
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__size_of___bmul 0 0 ABS 0 - dist/default/production\UART.X.production.obj
+__end_of___bmul 80E 0 CODE 0 text4 dist/default/production\UART.X.production.obj
+___lldiv@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production\UART.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 3 2
+cinit 0 7FC FF8 4 2
+config 0 2007 400E 1 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 37 1
+text1 0 5EF BDE 20D 2
+text3 0 4FE 9FC F1 2
+text8 0 4A0 940 5E 2
+text7 0 448 890 58 2
+strings 0 3 6 3D 2
+maintext 0 432 864 16 2
+text6 0 41C 838 16 2
+text2 0 407 80E 15 2
+text4 0 3F4 7E8 13 2
+text5 0 3EB 7D6 9 2

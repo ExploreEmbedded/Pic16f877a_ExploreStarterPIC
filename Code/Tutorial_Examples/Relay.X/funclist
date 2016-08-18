@@ -1,0 +1,6 @@
+_main: CODE, 1457 0 38
+__initialization: CODE, 2044 0 0
+_GPIO_PinRead: CODE, 1495 0 115
+_GPIO_PinWrite: CODE, 1827 0 217
+_GPIO_PinDirection: CODE, 1610 0 217
+Total: 587

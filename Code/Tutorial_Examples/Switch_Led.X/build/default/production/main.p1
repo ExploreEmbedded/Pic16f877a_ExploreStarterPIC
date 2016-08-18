@@ -1,0 +1,103 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[p mainexit ]
+"18 main.c
+[c E22 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 255 .. ]
+[n E22 . PA_0 PA_1 PA_2 PA_3 PA_4 PA_5 PA_6 PA_7 PB_0 PB_1 PB_2 PB_3 PB_4 PB_5 PB_6 PB_7 PC_0 PC_1 PC_2 PC_3 PC_4 PC_5 PC_6 PC_7 PD_0 PD_1 PD_2 PD_3 PD_4 PD_5 PD_6 PD_7 PE_0 PE_1 PE_2 PE_3 PE_4 PE_5 PE_6 PE_7 P_NC  ]
+"66 ../../SampleCode/00-libfiles\gpio.h
+[v _GPIO_PinDirection `(v ~T0 @X0 0 ef2`E22`uc ]
+"68
+[v _GPIO_PinRead `(uc ~T0 @X0 0 ef1`E22 ]
+"67
+[v _GPIO_PinWrite `(v ~T0 @X0 0 ef2`E22`uc ]
+[; ;00-libfiles\stdutils.h: 68: typedef signed char sint8_t;
+[; ;00-libfiles\stdutils.h: 69: typedef unsigned char uint8_t;
+[; ;00-libfiles\stdutils.h: 71: typedef signed int sint16_t;
+[; ;00-libfiles\stdutils.h: 72: typedef unsigned int uint16_t;
+[; ;00-libfiles\stdutils.h: 74: typedef signed long int sint32_t;
+[; ;00-libfiles\stdutils.h: 75: typedef unsigned long int uint32_t;
+[; ;00-libfiles\stdutils.h: 177: typedef enum
+[; ;00-libfiles\stdutils.h: 178: {
+[; ;00-libfiles\stdutils.h: 179: E_FALSE,
+[; ;00-libfiles\stdutils.h: 180: E_TRUE
+[; ;00-libfiles\stdutils.h: 181: }Boolean_et;
+[; ;00-libfiles\stdutils.h: 184: typedef enum
+[; ;00-libfiles\stdutils.h: 185: {
+[; ;00-libfiles\stdutils.h: 186: E_FAILED,
+[; ;00-libfiles\stdutils.h: 187: E_SUCCESS,
+[; ;00-libfiles\stdutils.h: 188: E_BUSY,
+[; ;00-libfiles\stdutils.h: 189: E_TIMEOUT
+[; ;00-libfiles\stdutils.h: 190: }Status_et;
+[; ;00-libfiles\stdutils.h: 193: typedef enum
+[; ;00-libfiles\stdutils.h: 194: {
+[; ;00-libfiles\stdutils.h: 195: E_BINARY=2,
+[; ;00-libfiles\stdutils.h: 196: E_DECIMAL = 10,
+[; ;00-libfiles\stdutils.h: 197: E_HEX = 16
+[; ;00-libfiles\stdutils.h: 198: }NumericSystem_et;
+"299 ../../SampleCode/00-libfiles\stdutils.h
+[p x FOSC=HS ]
+"300
+[p x WDTE=OFF ]
+"301
+[p x PWRTE=OFF ]
+"302
+[p x BOREN=OFF ]
+"303
+[p x LVP=ON ]
+"304
+[p x CPD=OFF ]
+"305
+[p x WRT=OFF ]
+"306
+[p x CP=OFF ]
+[; ;00-libfiles\gpio.h: 48: typedef enum
+[; ;00-libfiles\gpio.h: 49: {
+[; ;00-libfiles\gpio.h: 50: PA_0,PA_1,PA_2,PA_3,PA_4,PA_5,PA_6,PA_7,
+[; ;00-libfiles\gpio.h: 51: PB_0,PB_1,PB_2,PB_3,PB_4,PB_5,PB_6,PB_7,
+[; ;00-libfiles\gpio.h: 52: PC_0,PC_1,PC_2,PC_3,PC_4,PC_5,PC_6,PC_7,
+[; ;00-libfiles\gpio.h: 53: PD_0,PD_1,PD_2,PD_3,PD_4,PD_5,PD_6,PD_7,
+[; ;00-libfiles\gpio.h: 54: PE_0,PE_1,PE_2,PE_3,PE_4,PE_5,PE_6,PE_7,
+[; ;00-libfiles\gpio.h: 55: P_NC = 0xff
+[; ;00-libfiles\gpio.h: 56: }gpioPins_et;
+[; ;00-libfiles\gpio.h: 66: void GPIO_PinDirection(gpioPins_et enm_pinNumber, uint8_t var_pinDirn_u8);
+[; ;00-libfiles\gpio.h: 67: void GPIO_PinWrite(gpioPins_et enm_pinNumber, uint8_t var_pinValue_u8);
+[; ;00-libfiles\gpio.h: 68: uint8_t GPIO_PinRead(gpioPins_et enm_pinNumber);
+"14 main.c
+[v _main `(v ~T0 @X0 1 ef ]
+"15
+{
+[; ;main.c: 14: void main()
+[; ;main.c: 15: {
+[e :U _main ]
+[f ]
+"16
+[v _value `uc ~T0 @X0 1 a ]
+[; ;main.c: 16: uint8_t value;
+[; ;main.c: 18: GPIO_PinDirection(PD_2,0x01u);
+"18
+[e ( _GPIO_PinDirection (2 , -> . `E22 26 `E22 -> -> 1 `ui `uc ]
+[; ;main.c: 19: GPIO_PinDirection(PD_0,0x00u);
+"19
+[e ( _GPIO_PinDirection (2 , -> . `E22 24 `E22 -> -> 0 `ui `uc ]
+[; ;main.c: 21: while(1)
+"21
+[e :U 3 ]
+[; ;main.c: 22: {
+"22
+{
+[; ;main.c: 24: value = GPIO_PinRead(PD_2);
+"24
+[e = _value ( _GPIO_PinRead (1 -> . `E22 26 `E22 ]
+[; ;main.c: 25: GPIO_PinWrite(PD_0,value);
+"25
+[e ( _GPIO_PinWrite (2 , -> . `E22 24 `E22 _value ]
+"26
+}
+[e :U 2 ]
+"21
+[e $U 3  ]
+[e :U 4 ]
+[; ;main.c: 26: }
+[; ;main.c: 27: }
+"27
+[e :UE 1 ]
+}

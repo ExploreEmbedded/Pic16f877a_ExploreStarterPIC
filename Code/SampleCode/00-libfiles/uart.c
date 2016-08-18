@@ -43,9 +43,9 @@ Errors and omissions should be reported to codelibraries@exploreembedded.com
 
 #pragma warning push
 #pragma warning disable 752   // Suppress warnings related to size of variables(conversion to shorter data type).
-#pragma warning disable 1496  // Suppress pointer related warnings
-#pragma warning disable 520   // Suppress warning for un used/called functions.
-#pragma warning disable 1498  // Handling string as arrays and vice versa
+// #pragma warning disable 1496  // Suppress pointer related warnings
+// #pragma warning disable 520   // Suppress warning for un used/called functions.
+// #pragma warning disable 1498  // Handling string as arrays and vice versa
 #pragma warning disable 356   // Suppress warning for float to integer conversion
 #pragma warning disable 359   // Suppress warning for Illegal Pointer conversion during string handling
 

@@ -1,0 +1,25 @@
+_LCD_Init: CODE, 1069 0 88
+_lcd_SendHigherNibble: CODE, 811 0 56
+_DELAY_ms: CODE, 490 0 20
+__stringtab: STRING, 3 0 6
+__stringdata: STRING, 9 0 17
+_lcd_SendCmdSignals: CODE, 614 0 45
+_LCD_SetUp: CODE, 1413 0 166
+_main: CODE, 923 0 67
+_lcd_SendLowerNibble: CODE, 867 0 56
+_LCD_CmdWrite: CODE, 705 0 53
+__initialization: CODE, 2013 0 31
+_LCD_Clear: CODE, 479 0 11
+_DELAY_us: CODE, 468 0 11
+_LCD_DisplayString: CODE, 582 0 32
+_GPIO_PinRead: CODE, 1157 0 115
+_LCD_GoToLine: CODE, 530 0 21
+_lcd_BusyCheck: CODE, 1272 0 141
+_LCD_GoToNextLine: CODE, 510 0 20
+_GPIO_PinWrite: CODE, 1796 0 217
+_lcd_Reset: CODE, 990 0 79
+_lcd_DataWrite: CODE, 758 0 53
+_LCD_DisplayChar: CODE, 551 0 31
+_GPIO_PinDirection: CODE, 1579 0 217
+_lcd_SendDataSignals: CODE, 659 0 46
+Total: 1599

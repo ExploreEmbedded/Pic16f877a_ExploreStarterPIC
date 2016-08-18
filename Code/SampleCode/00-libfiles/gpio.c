@@ -39,7 +39,7 @@ Errors and omissions should be reported to codelibraries@exploreembedded.com
 
 #pragma warning push
 #pragma warning disable 752
-#pragma warning disable 1496
+
 
 
 

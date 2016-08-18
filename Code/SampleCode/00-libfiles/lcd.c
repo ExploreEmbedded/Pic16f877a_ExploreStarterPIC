@@ -75,9 +75,9 @@ Errors and omissions should be reported to codelibraries@exploreembedded.com
 
 #pragma warning push
 #pragma warning disable 752 // Suppress warnings related to size of variables(conversion to shorter data type).
-#pragma warning disable 1496  // Suppress pointer related warnings
+// #pragma warning disable 1496  // Suppress pointer related warnings
 #pragma warning disable 520   // Suppress warning for un used/called functions.
-#pragma warning disable 1498   // Handling string as arrays and vice versa
+// #pragma warning disable 1498   // Handling string as arrays and vice versa
 #pragma warning disable 356    // float to integer conversion
 
 
@@ -199,7 +199,13 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8)
 {
 
 
-    LCDConfig.v_MaxSupportedChars_U8 = v_MaxCharsPerLine_u8; //Maintaian the LCD type
+    if(v_lcdNoOfLines_u8 == 1)                  //1x16 LCD is nothing but 2x8.
+    {
+        v_MaxCharsPerLine_u8 = v_MaxCharsPerLine_u8>>1; // Make the chars half and double the lines.
+        v_lcdNoOfLines_u8 = 2;
+    }
+    
+    LCDConfig.v_MaxSupportedChars_U8 = v_MaxCharsPerLine_u8; //Maintain the LCD type
     LCDConfig.v_MaxSupportedLines_U8 = v_lcdNoOfLines_u8;
     if(v_lcdNoOfLines_u8 > C_LcdLineTwo)
     {
