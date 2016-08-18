@@ -1459,7 +1459,7 @@ void UART_Init(uint32_t v_baudRate_u32);
 void UART_SetBaudRate(uint32_t v_baudRate_u32);
 void UART_TxChar(char v_uartData_u8);
 char UART_RxChar(void);
-void UART_TxString(char *ptr_string);
+void UART_TxString(const char *ptr_string);
 uint8_t UART_RxString(char *ptr_string);
 void UART_TxNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToTransmit_u8);
 void UART_TxFloatNumber(float v_floatNumber_f32);
@@ -1472,37 +1472,39 @@ void UART_Printf(const char *argList, ...);
 #pragma warning disable 1496
 #pragma warning disable 520
 #pragma warning disable 1498
+#pragma warning disable 356
+#pragma warning disable 359
 
-# 64
-void UART_Init(uint32_t var_baudRate_u32)
+# 66
+void UART_Init(uint32_t v_baudRate_u32)
 {
 TRISC=0x80;
 TXSTA=0x20;
 RCSTA=0x90;
-UART_SetBaudRate(var_baudRate_u32);
+UART_SetBaudRate(v_baudRate_u32);
 }
 
-# 89
-void UART_SetBaudRate(uint32_t var_baudRate_u32)
+# 91
+void UART_SetBaudRate(uint32_t v_baudRate_u32)
 {
-uint32_t RegValue;
+uint8_t RegValue;
 
-if((var_baudRate_u32 >= 2400) && (var_baudRate_u32<=115200UL))
+if((v_baudRate_u32 >= 2400) && (v_baudRate_u32<=115200UL))
 {
 
-# 97
-RegValue = (uint32_t)((20000000UL / (64*(uint32_t)var_baudRate_u32)) - 1);
+# 99
+RegValue = (uint8_t)(uint32_t)((20000000UL / (64*(uint32_t)v_baudRate_u32)) - 1);
 }
 else
 {
 
-RegValue = (uint32_t)((20000000UL / (64*(uint32_t)9600)) - 1);
+RegValue = (uint8_t)(uint32_t)((20000000UL / (64*(uint32_t)9600)) - 1);
 }
 
-SPBRG = (uint8_t)RegValue;
+SPBRG = RegValue;
 }
 
-# 121
+# 123
 char UART_RxChar()
 {
 while(RCIF==0);
@@ -1510,22 +1512,22 @@ RCIF=0;
 return(RCREG);
 }
 
-# 143
-void UART_TxChar(char var_uartData_u8)
+# 145
+void UART_TxChar(char v_uartData_u8)
 {
 while(TXIF==0);
 TXIF=0;
-TXREG=var_uartData_u8;
+TXREG=v_uartData_u8;
 }
 
-# 167
-void UART_TxString(char *ptr_string)
+# 169
+void UART_TxString(const char *ptr_string)
 {
 while(*ptr_string)
 UART_TxChar(*ptr_string++);
 }
 
-# 196
+# 198
 uint8_t UART_RxString(char *ptr_string)
 {
 char ch;
@@ -1553,7 +1555,7 @@ len++;
 return len;
 }
 
-# 258
+# 260
 void UART_TxNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToTransmit_u8)
 {
 uint8_t i=0,a[10];
@@ -1563,7 +1565,7 @@ if(2u == v_numericSystem_u8)
 while(v_numOfDigitsToTransmit_u8!=0)
 {
 
-# 268
+# 270
 i = (((v_number_u32)&((1<<((v_numOfDigitsToTransmit_u8-1)))))!=0u);
 UART_TxChar(((i)+0x30));
 v_numOfDigitsToTransmit_u8--;
@@ -1572,7 +1574,8 @@ v_numOfDigitsToTransmit_u8--;
 else if(v_number_u32==0)
 {
 
-for(i=0;((i<v_numOfDigitsToTransmit_u8) && (i<10u)) ;i++)
+
+
 UART_TxChar('0');
 }
 else
@@ -1580,11 +1583,11 @@ else
 for(i=0;i<v_numOfDigitsToTransmit_u8;i++)
 {
 
-# 285
+# 288
 if(v_number_u32!=0)
 {
 
-# 293
+# 296
 a[i]=(uint32_t)(v_number_u32 - (v_numericSystem_u8 * (uint32_t)(v_number_u32/v_numericSystem_u8)));
 v_number_u32=v_number_u32/v_numericSystem_u8;
 }
@@ -1592,13 +1595,13 @@ else if( (v_numOfDigitsToTransmit_u8 == 0xffu) ||
 (v_numOfDigitsToTransmit_u8 > 10u))
 {
 
-# 301
+# 304
 break;
 }
 else
 {
 
-# 308
+# 311
 a[i]=0;
 }
 }
@@ -1614,7 +1617,7 @@ i--;
 
 }
 
-# 410
+# 413
 void UART_Printf(const char *argList, ...)
 {
 const char *ptr;
@@ -1627,7 +1630,7 @@ char *str;
 char ch;
 uint8_t v_numOfDigitsToTransmit_u8;
 
-# 426
+# 429
 *argp = __va_start();
 
 
@@ -1726,7 +1729,7 @@ break;
 case 'F':
 case 'f':
 
-# 527
+# 530
 break;
 
 

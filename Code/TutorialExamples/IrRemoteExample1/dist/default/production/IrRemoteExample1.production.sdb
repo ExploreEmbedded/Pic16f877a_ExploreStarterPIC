@@ -1,0 +1,257 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"61 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/gpio.c
+[e E1088 . `uc
+PA_0 0
+PA_1 1
+PA_2 2
+PA_3 3
+PA_4 4
+PA_5 5
+PA_6 6
+PA_7 7
+PB_0 8
+PB_1 9
+PB_2 10
+PB_3 11
+PB_4 12
+PB_5 13
+PB_6 14
+PB_7 15
+PC_0 16
+PC_1 17
+PC_2 18
+PC_3 19
+PC_4 20
+PC_5 21
+PC_6 22
+PC_7 23
+PD_0 24
+PD_1 25
+PD_2 26
+PD_3 27
+PD_4 28
+PD_5 29
+PD_6 30
+PD_7 31
+PE_0 32
+PE_1 33
+PE_2 34
+PE_3 35
+PE_4 36
+PE_5 37
+PE_6 38
+PE_7 39
+P_NC 255
+]
+"56 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/delay.c
+[v _DELAY_us DELAY_us `(v  1 e 1 0 ]
+"75
+[v _DELAY_ms DELAY_ms `(v  1 e 1 0 ]
+"66 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c
+[v _UART_Init UART_Init `(v  1 e 1 0 ]
+"91
+[v _UART_SetBaudRate UART_SetBaudRate `(v  1 e 1 0 ]
+"123
+[v _UART_RxChar UART_RxChar `(uc  1 e 1 0 ]
+"145
+[v _UART_TxChar UART_TxChar `(v  1 e 1 0 ]
+"169
+[v _UART_TxString UART_TxString `(v  1 e 1 0 ]
+"260
+[v _UART_TxNumber UART_TxNumber `(v  1 e 1 0 ]
+"413
+[v _UART_Printf UART_Printf `(v  1 e 1 0 ]
+"62 C:\Program Files\Microchip\xc8\v1.36\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v1.36\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files\Microchip\xc8\v1.36\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v1.36\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 C:\Program Files\Microchip\xc8\v1.36\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"11 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code\TutorialExamples\IrRemoteExample1\main.c
+[v _interrupt_isr interrupt_isr `II(v  1 e 1 0 ]
+"55
+[v _main main `(i  1 e 2 0 ]
+"55 C:\Program Files\Microchip\xc8\v1.36\include\pic16f877a.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"160
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"209
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"270
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"331
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"392
+[v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"937
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1031
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1037
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1219
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+"1288
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1337
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1398
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1459
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1520
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"1950
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2030
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2443
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2463
+[v _INTE INTE `VEb  1 e 0 @92 ]
+"2467
+[v _INTF INTF `VEb  1 e 0 @89 ]
+"2483
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"2559
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
+"2649
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
+"2651
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"2659
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"2755
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"5 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code\TutorialExamples\IrRemoteExample1\main.c
+[v _bitPattern bitPattern `ul  1 e 4 0 ]
+[v _newChar newChar `ul  1 e 4 0 ]
+"6
+[v _timeValue timeValue `ui  1 e 2 0 ]
+"7
+[v _OverFlowFlag OverFlowFlag `uc  1 e 1 0 ]
+"8
+[v _bitCnt bitCnt `i  1 e 2 0 ]
+"9
+[v _flag flag `i  1 e 2 0 ]
+"55
+[v _main main `(i  1 e 2 0 ]
+{
+"56
+[v main@oldCnt oldCnt `i  1 a 2 73 ]
+"77
+} 0
+"413 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c
+[v _UART_Printf UART_Printf `(v  1 e 1 0 ]
+{
+[v UART_Printf@argList argList `*.24DCCuc  1 a 1 wreg ]
+"420
+[v UART_Printf@v_num_u32 v_num_u32 `ul  1 a 4 63 ]
+"418
+[v UART_Printf@v_num_s32 v_num_s32 `l  1 a 4 57 ]
+"419
+[v UART_Printf@v_num_u16 v_num_u16 `ui  1 a 2 67 ]
+"417
+[v UART_Printf@v_num_s16 v_num_s16 `i  1 a 2 61 ]
+"416
+[v UART_Printf@argp argp `[1]*.4v  1 a 1 72 ]
+"423
+[v UART_Printf@v_numOfDigitsToTransmit_u8 v_numOfDigitsToTransmit_u8 `uc  1 a 1 71 ]
+"422
+[v UART_Printf@ch ch `uc  1 a 1 70 ]
+"415
+[v UART_Printf@ptr ptr `*.24DCCuc  1 a 1 69 ]
+"421
+[v UART_Printf@str str `*.1uc  1 a 1 55 ]
+"413
+[v UART_Printf@argList argList `*.24DCCuc  1 a 1 wreg ]
+"429
+[v UART_Printf@argList argList `*.24DCCuc  1 a 1 56 ]
+"552
+} 0
+"169
+[v _UART_TxString UART_TxString `(v  1 e 1 0 ]
+{
+[v UART_TxString@ptr_string ptr_string `*.24DCCuc  1 a 1 wreg ]
+[v UART_TxString@ptr_string ptr_string `*.24DCCuc  1 a 1 wreg ]
+[v UART_TxString@ptr_string ptr_string `*.24DCCuc  1 a 1 2 ]
+"173
+} 0
+"260
+[v _UART_TxNumber UART_TxNumber `(v  1 e 1 0 ]
+{
+[v UART_TxNumber@v_numericSystem_u8 v_numericSystem_u8 `uc  1 a 1 wreg ]
+"262
+[v UART_TxNumber@a a `[10]uc  1 a 10 35 ]
+[v UART_TxNumber@i i `uc  1 a 1 48 ]
+"260
+[v UART_TxNumber@v_numericSystem_u8 v_numericSystem_u8 `uc  1 a 1 wreg ]
+[v UART_TxNumber@v_number_u32 v_number_u32 `ul  1 p 4 18 ]
+[v UART_TxNumber@v_numOfDigitsToTransmit_u8 v_numOfDigitsToTransmit_u8 `uc  1 p 1 22 ]
+"262
+[v UART_TxNumber@v_numericSystem_u8 v_numericSystem_u8 `uc  1 a 1 47 ]
+"324
+} 0
+"4 C:\Program Files\Microchip\xc8\v1.36\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 16 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 14 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 17 ]
+"51
+} 0
+"145 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code/SampleCode/00-libfiles/uart.c
+[v _UART_TxChar UART_TxChar `(v  1 e 1 0 ]
+{
+[v UART_TxChar@v_uartData_u8 v_uartData_u8 `uc  1 a 1 wreg ]
+[v UART_TxChar@v_uartData_u8 v_uartData_u8 `uc  1 a 1 wreg ]
+[v UART_TxChar@v_uartData_u8 v_uartData_u8 `uc  1 a 1 0 ]
+"150
+} 0
+"66
+[v _UART_Init UART_Init `(v  1 e 1 0 ]
+{
+[v UART_Init@v_baudRate_u32 v_baudRate_u32 `ul  1 p 4 24 ]
+"72
+} 0
+"91
+[v _UART_SetBaudRate UART_SetBaudRate `(v  1 e 1 0 ]
+{
+"93
+[v UART_SetBaudRate@RegValue RegValue `uc  1 a 1 23 ]
+"91
+[v UART_SetBaudRate@v_baudRate_u32 v_baudRate_u32 `ul  1 p 4 14 ]
+"108
+} 0
+"6 C:\Program Files\Microchip\xc8\v1.36\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"31
+} 0
+"11 F:\GitHub\PIC\Pic16f877a_ExploreStarterPIC\Code\TutorialExamples\IrRemoteExample1\main.c
+[v _interrupt_isr interrupt_isr `II(v  1 e 1 0 ]
+{
+"51
+} 0
