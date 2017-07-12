@@ -1469,7 +1469,7 @@ uint16_t ADC_GetAdcValue(uint8_t var_adcChannel_u8)
 
 ADCON0= (var_adcChannel_u8<<3);
 ADON = 1;
-DELAY_us(50);
+DELAY_us(10);
 
 GO=1;
 while(GO_DONE==1);

@@ -1058,7 +1058,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;00-libfiles\uart.h: 100: void UART_SetBaudRate(uint32_t v_baudRate_u32);
 [; ;00-libfiles\uart.h: 101: void UART_TxChar(char v_uartData_u8);
 [; ;00-libfiles\uart.h: 102: char UART_RxChar(void);
-[; ;00-libfiles\uart.h: 103: void UART_TxString(char *ptr_string);
+[; ;00-libfiles\uart.h: 103: void UART_TxString(const char *ptr_string);
 [; ;00-libfiles\uart.h: 104: uint8_t UART_RxString(char *ptr_string);
 [; ;00-libfiles\uart.h: 105: void UART_TxNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToTransmit_u8);
 [; ;00-libfiles\uart.h: 106: void UART_TxFloatNumber(float v_floatNumber_f32);

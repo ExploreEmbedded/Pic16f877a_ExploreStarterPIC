@@ -1,13 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.5)
+(kicad_pcb (version 4) (host pcbnew 4.0.1-stable)
 
   (general
     (links 126)
     (no_connects 0)
-<<<<<<< HEAD
-    (area 29.809499 38.809499 120.190501 109.190501)
-=======
     (area 35.470999 30.809499 134.190501 101.190501)
->>>>>>> origin/master
     (thickness 1.6002)
     (drawings 63)
     (tracks 645)
@@ -22,8 +18,8 @@
   )
 
   (layers
-    (0 Front signal hide)
-    (31 Back signal hide)
+    (0 Front signal)
+    (31 Back signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
     (34 B.Paste user)
@@ -77,7 +73,7 @@
     (aux_axis_origin 0 0)
     (visible_elements 7FFFF7FF)
     (pcbplotparams
-      (layerselection 0x00020_00000000)
+      (layerselection 0x000f0_80000001)
       (usegerberextensions false)
       (excludeedgelayer false)
       (linewidth 0.150000)
@@ -96,7 +92,7 @@
       (plotinvisibletext false)
       (padsonsilk false)
       (subtractmaskfromsilk false)
-      (outputformat 2)
+      (outputformat 1)
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
@@ -23873,11 +23869,7 @@
   (gr_text B_LED (at 130.586 88.774) (layer F.SilkS)
     (effects (font (size 1.016 1.016) (thickness 0.254)))
   )
-<<<<<<< HEAD
-  (gr_text "LCD Connections\nD4-D7->RB4-RB7\nRS->RB0\nR/W->RB1\nEN->RB2\nLED1->RD0\nLED1->RD1\n\nSW1->RD2\nSW2->RD3" (at 104.14 54.991) (layer B.SilkS)
-=======
   (gr_text "LCD Connections\nD0-D4->RB4-RB7\nRS->RB0\nR/W->RB1\nEN->RB2\nLED1->RD0\nLED1->RD1\n\nSW1->RD2\nSW2->RD3" (at 118.14 46.991) (layer B.SilkS)
->>>>>>> origin/master
     (effects (font (size 1.016 1.016) (thickness 0.254) italic) (justify left mirror))
   )
   (gr_text SW2 (at 113.568 80.646) (layer F.SilkS)

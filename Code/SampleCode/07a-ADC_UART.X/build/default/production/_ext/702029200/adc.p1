@@ -1099,9 +1099,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 80: ADON = 1;
 "80
 [e = _ADON -> -> 1 `i `b ]
-[; ;adc.c: 81: DELAY_us(50);
+[; ;adc.c: 81: DELAY_us(10);
 "81
-[e ( _DELAY_us (1 -> -> 50 `i `ui ]
+[e ( _DELAY_us (1 -> -> 10 `i `ui ]
 [; ;adc.c: 83: GO=1;
 "83
 [e = _GO -> -> 1 `i `b ]

@@ -1074,7 +1074,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;uart.h: 100: void UART_SetBaudRate(uint32_t v_baudRate_u32);
 [; ;uart.h: 101: void UART_TxChar(char v_uartData_u8);
 [; ;uart.h: 102: char UART_RxChar(void);
-[; ;uart.h: 103: void UART_TxString(char *ptr_string);
+[; ;uart.h: 103: void UART_TxString(const char *ptr_string);
 [; ;uart.h: 104: uint8_t UART_RxString(char *ptr_string);
 [; ;uart.h: 105: void UART_TxNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToTransmit_u8);
 [; ;uart.h: 106: void UART_TxFloatNumber(float v_floatNumber_f32);
@@ -1089,795 +1089,786 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p n 520 ]
 "48
 [p n 1498 ]
-"64
-[v _UART_Init `(v ~T0 @X0 1 ef1`ul ]
-"65
-{
-[; ;uart.c: 64: void UART_Init(uint32_t var_baudRate_u32)
-[; ;uart.c: 65: {
-[e :U _UART_Init ]
-"64
-[v _var_baudRate_u32 `ul ~T0 @X0 1 r1 ]
-"65
-[f ]
-[; ;uart.c: 66: TRISC=0x80;
+"49
+[p n 356 ]
+"50
+[p n 359 ]
 "66
-[e = _TRISC -> -> 128 `i `uc ]
-[; ;uart.c: 67: TXSTA=0x20;
+[v _UART_Init `(v ~T0 @X0 1 ef1`ul ]
 "67
-[e = _TXSTA -> -> 32 `i `uc ]
-[; ;uart.c: 68: RCSTA=0x90;
+{
+[; ;uart.c: 66: void UART_Init(uint32_t v_baudRate_u32)
+[; ;uart.c: 67: {
+[e :U _UART_Init ]
+"66
+[v _v_baudRate_u32 `ul ~T0 @X0 1 r1 ]
+"67
+[f ]
+[; ;uart.c: 68: TRISC=0x80;
 "68
-[e = _RCSTA -> -> 144 `i `uc ]
-[; ;uart.c: 69: UART_SetBaudRate(var_baudRate_u32);
+[e = _TRISC -> -> 128 `i `uc ]
+[; ;uart.c: 69: TXSTA=0x20;
 "69
-[e ( _UART_SetBaudRate (1 _var_baudRate_u32 ]
-[; ;uart.c: 70: }
+[e = _TXSTA -> -> 32 `i `uc ]
+[; ;uart.c: 70: RCSTA=0x90;
 "70
+[e = _RCSTA -> -> 144 `i `uc ]
+[; ;uart.c: 71: UART_SetBaudRate(v_baudRate_u32);
+"71
+[e ( _UART_SetBaudRate (1 _v_baudRate_u32 ]
+[; ;uart.c: 72: }
+"72
 [e :UE 96 ]
 }
-"89
-[v _UART_SetBaudRate `(v ~T0 @X0 1 ef1`ul ]
-"90
-{
-[; ;uart.c: 89: void UART_SetBaudRate(uint32_t var_baudRate_u32)
-[; ;uart.c: 90: {
-[e :U _UART_SetBaudRate ]
-"89
-[v _var_baudRate_u32 `ul ~T0 @X0 1 r1 ]
-"90
-[f ]
 "91
-[v _RegValue `ul ~T0 @X0 1 a ]
-[; ;uart.c: 91: uint32_t RegValue;
-[; ;uart.c: 93: if((var_baudRate_u32 >= 2400) && (var_baudRate_u32<=115200UL))
+[v _UART_SetBaudRate `(v ~T0 @X0 1 ef1`ul ]
+"92
+{
+[; ;uart.c: 91: void UART_SetBaudRate(uint32_t v_baudRate_u32)
+[; ;uart.c: 92: {
+[e :U _UART_SetBaudRate ]
+"91
+[v _v_baudRate_u32 `ul ~T0 @X0 1 r1 ]
+"92
+[f ]
 "93
-[e $ ! && >= _var_baudRate_u32 -> -> -> 2400 `i `l `ul <= _var_baudRate_u32 -> 115200 `ul 98  ]
-[; ;uart.c: 94: {
-"94
+[v _RegValue `uc ~T0 @X0 1 a ]
+[; ;uart.c: 93: uint8_t RegValue;
+[; ;uart.c: 95: if((v_baudRate_u32 >= 2400) && (v_baudRate_u32<=115200UL))
+"95
+[e $ ! && >= _v_baudRate_u32 -> -> -> 2400 `i `l `ul <= _v_baudRate_u32 -> 115200 `ul 98  ]
+[; ;uart.c: 96: {
+"96
 {
-[; ;uart.c: 97: RegValue = (uint32_t)((20000000UL / (64*(uint32_t)var_baudRate_u32)) - 1);
-"97
-[e = _RegValue - / -> 20000000 `ul * -> -> -> 64 `i `l `ul _var_baudRate_u32 -> -> -> 1 `i `l `ul ]
-"98
-}
-[; ;uart.c: 98: }
-[e $U 99  ]
+[; ;uart.c: 99: RegValue = (uint8_t)(uint32_t)((20000000UL / (64*(uint32_t)v_baudRate_u32)) - 1);
 "99
-[e :U 98 ]
-[; ;uart.c: 99: else
-[; ;uart.c: 100: {
+[e = _RegValue -> - / -> 20000000 `ul * -> -> -> 64 `i `l `ul _v_baudRate_u32 -> -> -> 1 `i `l `ul `uc ]
 "100
-{
-[; ;uart.c: 102: RegValue = (uint32_t)((20000000UL / (64*(uint32_t)9600)) - 1);
+}
+[; ;uart.c: 100: }
+[e $U 99  ]
+"101
+[e :U 98 ]
+[; ;uart.c: 101: else
+[; ;uart.c: 102: {
 "102
-[e = _RegValue - / -> 20000000 `ul * -> -> -> 64 `i `l `ul -> -> 9600 `i `ul -> -> -> 1 `i `l `ul ]
-"103
+{
+[; ;uart.c: 104: RegValue = (uint8_t)(uint32_t)((20000000UL / (64*(uint32_t)9600)) - 1);
+"104
+[e = _RegValue -> - / -> 20000000 `ul * -> -> -> 64 `i `l `ul -> -> 9600 `i `ul -> -> -> 1 `i `l `ul `uc ]
+"105
 }
 [e :U 99 ]
-[; ;uart.c: 103: }
-[; ;uart.c: 105: SPBRG = (uint8_t)RegValue;
-"105
-[e = _SPBRG -> _RegValue `uc ]
-[; ;uart.c: 106: }
-"106
+[; ;uart.c: 105: }
+[; ;uart.c: 107: SPBRG = RegValue;
+"107
+[e = _SPBRG _RegValue ]
+[; ;uart.c: 108: }
+"108
 [e :UE 97 ]
 }
-"121
+"123
 [v _UART_RxChar `(uc ~T0 @X0 1 ef ]
-"122
+"124
 {
-[; ;uart.c: 121: char UART_RxChar()
-[; ;uart.c: 122: {
+[; ;uart.c: 123: char UART_RxChar()
+[; ;uart.c: 124: {
 [e :U _UART_RxChar ]
 [f ]
-[; ;uart.c: 123: while(RCIF==0);
-"123
+[; ;uart.c: 125: while(RCIF==0);
+"125
 [e $U 101  ]
 [e :U 102 ]
 [e :U 101 ]
 [e $ == -> _RCIF `i -> 0 `i 102  ]
 [e :U 103 ]
-[; ;uart.c: 124: RCIF=0;
-"124
+[; ;uart.c: 126: RCIF=0;
+"126
 [e = _RCIF -> -> 0 `i `b ]
-[; ;uart.c: 125: return(RCREG);
-"125
+[; ;uart.c: 127: return(RCREG);
+"127
 [e ) _RCREG ]
 [e $UE 100  ]
-[; ;uart.c: 126: }
-"126
+[; ;uart.c: 128: }
+"128
 [e :UE 100 ]
 }
-"143
-[v _UART_TxChar `(v ~T0 @X0 1 ef1`uc ]
-"144
-{
-[; ;uart.c: 143: void UART_TxChar(char var_uartData_u8)
-[; ;uart.c: 144: {
-[e :U _UART_TxChar ]
-"143
-[v _var_uartData_u8 `uc ~T0 @X0 1 r1 ]
-"144
-[f ]
-[; ;uart.c: 145: while(TXIF==0);
 "145
+[v _UART_TxChar `(v ~T0 @X0 1 ef1`uc ]
+"146
+{
+[; ;uart.c: 145: void UART_TxChar(char v_uartData_u8)
+[; ;uart.c: 146: {
+[e :U _UART_TxChar ]
+"145
+[v _v_uartData_u8 `uc ~T0 @X0 1 r1 ]
+"146
+[f ]
+[; ;uart.c: 147: while(TXIF==0);
+"147
 [e $U 105  ]
 [e :U 106 ]
 [e :U 105 ]
 [e $ == -> _TXIF `i -> 0 `i 106  ]
 [e :U 107 ]
-[; ;uart.c: 146: TXIF=0;
-"146
-[e = _TXIF -> -> 0 `i `b ]
-[; ;uart.c: 147: TXREG=var_uartData_u8;
-"147
-[e = _TXREG _var_uartData_u8 ]
-[; ;uart.c: 148: }
+[; ;uart.c: 148: TXIF=0;
 "148
+[e = _TXIF -> -> 0 `i `b ]
+[; ;uart.c: 149: TXREG=v_uartData_u8;
+"149
+[e = _TXREG _v_uartData_u8 ]
+[; ;uart.c: 150: }
+"150
 [e :UE 104 ]
 }
-"167
-[v _UART_TxString `(v ~T0 @X0 1 ef1`*uc ]
-"168
-{
-[; ;uart.c: 167: void UART_TxString(char *ptr_string)
-[; ;uart.c: 168: {
-[e :U _UART_TxString ]
-"167
-[v _ptr_string `*uc ~T0 @X0 1 r1 ]
-"168
-[f ]
-[; ;uart.c: 169: while(*ptr_string)
 "169
+[v _UART_TxString `(v ~T0 @X0 1 ef1`*Cuc ]
+"170
+{
+[; ;uart.c: 169: void UART_TxString(const char *ptr_string)
+[; ;uart.c: 170: {
+[e :U _UART_TxString ]
+"169
+[v _ptr_string `*Cuc ~T0 @X0 1 r1 ]
+"170
+[f ]
+[; ;uart.c: 171: while(*ptr_string)
+"171
 [e $U 109  ]
 [e :U 110 ]
-[; ;uart.c: 170: UART_TxChar(*ptr_string++);
-"170
+[; ;uart.c: 172: UART_TxChar(*ptr_string++);
+"172
 [e ( _UART_TxChar (1 *U ++ _ptr_string * -> -> 1 `i `x -> -> # *U _ptr_string `i `x ]
 [e :U 109 ]
-"169
-[e $ != -> *U _ptr_string `i -> -> -> 0 `i `uc `i 110  ]
-[e :U 111 ]
-[; ;uart.c: 171: }
 "171
+[e $ != -> *U _ptr_string `i -> -> -> 0 `i `Cuc `i 110  ]
+[e :U 111 ]
+[; ;uart.c: 173: }
+"173
 [e :UE 108 ]
 }
-"196
-[v _UART_RxString `(uc ~T0 @X0 1 ef1`*uc ]
-"197
-{
-[; ;uart.c: 196: uint8_t UART_RxString(char *ptr_string)
-[; ;uart.c: 197: {
-[e :U _UART_RxString ]
-"196
-[v _ptr_string `*uc ~T0 @X0 1 r1 ]
-"197
-[f ]
 "198
-[v _ch `uc ~T0 @X0 1 a ]
+[v _UART_RxString `(uc ~T0 @X0 1 ef1`*uc ]
 "199
-[v _len `uc ~T0 @X0 1 a ]
-[; ;uart.c: 198: char ch;
-[; ;uart.c: 199: uint8_t len = 0;
-[e = _len -> -> 0 `i `uc ]
-[; ;uart.c: 200: while(1)
+{
+[; ;uart.c: 198: uint8_t UART_RxString(char *ptr_string)
+[; ;uart.c: 199: {
+[e :U _UART_RxString ]
+"198
+[v _ptr_string `*uc ~T0 @X0 1 r1 ]
+"199
+[f ]
 "200
-[e :U 114 ]
-[; ;uart.c: 201: {
+[v _ch `uc ~T0 @X0 1 a ]
 "201
-{
-[; ;uart.c: 202: ch=UART_RxChar();
+[v _len `uc ~T0 @X0 1 a ]
+[; ;uart.c: 200: char ch;
+[; ;uart.c: 201: uint8_t len = 0;
+[e = _len -> -> 0 `i `uc ]
+[; ;uart.c: 202: while(1)
 "202
-[e = _ch ( _UART_RxChar ..  ]
-[; ;uart.c: 203: UART_TxChar(ch);
+[e :U 114 ]
+[; ;uart.c: 203: {
 "203
-[e ( _UART_TxChar (1 _ch ]
-[; ;uart.c: 205: if((ch=='\r') || (ch=='\n'))
+{
+[; ;uart.c: 204: ch=UART_RxChar();
+"204
+[e = _ch ( _UART_RxChar ..  ]
+[; ;uart.c: 205: UART_TxChar(ch);
 "205
-[e $ ! || == -> _ch `ui -> 13 `ui == -> _ch `ui -> 10 `ui 116  ]
-[; ;uart.c: 206: {
-"206
-{
-[; ;uart.c: 207: ptr_string[len]=0;
+[e ( _UART_TxChar (1 _ch ]
+[; ;uart.c: 207: if((ch=='\r') || (ch=='\n'))
 "207
-[e = *U + _ptr_string * -> _len `ux -> -> # *U _ptr_string `ui `ux -> -> 0 `i `uc ]
-[; ;uart.c: 208: break;
+[e $ ! || == -> _ch `ui -> 13 `ui == -> _ch `ui -> 10 `ui 116  ]
+[; ;uart.c: 208: {
 "208
-[e $U 115  ]
+{
+[; ;uart.c: 209: ptr_string[len]=0;
 "209
-}
-[; ;uart.c: 209: }
-[e $U 117  ]
+[e = *U + _ptr_string * -> _len `ux -> -> # *U _ptr_string `ui `ux -> -> 0 `i `uc ]
+[; ;uart.c: 210: break;
 "210
-[e :U 116 ]
-[; ;uart.c: 210: else if((ch=='\b') && (len!=0))
-[e $ ! && == -> _ch `ui -> 8 `ui != -> _len `i -> 0 `i 118  ]
-[; ;uart.c: 211: {
+[e $U 115  ]
 "211
-{
-[; ;uart.c: 212: len--;
-"212
-[e -- _len -> -> 1 `i `uc ]
-"213
 }
-[; ;uart.c: 213: }
-[e $U 119  ]
-"214
-[e :U 118 ]
-[; ;uart.c: 214: else
-[; ;uart.c: 215: {
-"215
+[; ;uart.c: 211: }
+[e $U 117  ]
+"212
+[e :U 116 ]
+[; ;uart.c: 212: else if((ch=='\b') && (len!=0))
+[e $ ! && == -> _ch `ui -> 8 `ui != -> _len `i -> 0 `i 118  ]
+[; ;uart.c: 213: {
+"213
 {
-[; ;uart.c: 216: ptr_string[len]=ch;
+[; ;uart.c: 214: len--;
+"214
+[e -- _len -> -> 1 `i `uc ]
+"215
+}
+[; ;uart.c: 215: }
+[e $U 119  ]
 "216
-[e = *U + _ptr_string * -> _len `ux -> -> # *U _ptr_string `ui `ux _ch ]
-[; ;uart.c: 217: len++;
+[e :U 118 ]
+[; ;uart.c: 216: else
+[; ;uart.c: 217: {
 "217
-[e ++ _len -> -> 1 `i `uc ]
+{
+[; ;uart.c: 218: ptr_string[len]=ch;
 "218
+[e = *U + _ptr_string * -> _len `ux -> -> # *U _ptr_string `ui `ux _ch ]
+[; ;uart.c: 219: len++;
+"219
+[e ++ _len -> -> 1 `i `uc ]
+"220
 }
 [e :U 119 ]
 [e :U 117 ]
-"219
+"221
 }
 [e :U 113 ]
-"200
+"202
 [e $U 114  ]
 [e :U 115 ]
-[; ;uart.c: 218: }
-[; ;uart.c: 219: }
-[; ;uart.c: 220: return len;
-"220
+[; ;uart.c: 220: }
+[; ;uart.c: 221: }
+[; ;uart.c: 222: return len;
+"222
 [e ) _len ]
 [e $UE 112  ]
-[; ;uart.c: 221: }
-"221
+[; ;uart.c: 223: }
+"223
 [e :UE 112 ]
 }
-"258
+"260
 [v _UART_TxNumber `(v ~T0 @X0 1 ef3`uc`ul`uc ]
-"259
+"261
 {
-[; ;uart.c: 258: void UART_TxNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToTransmit_u8)
-[; ;uart.c: 259: {
+[; ;uart.c: 260: void UART_TxNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_t v_numOfDigitsToTransmit_u8)
+[; ;uart.c: 261: {
 [e :U _UART_TxNumber ]
-"258
+"260
 [v _v_numericSystem_u8 `uc ~T0 @X0 1 r1 ]
 [v _v_number_u32 `ul ~T0 @X0 1 r2 ]
 [v _v_numOfDigitsToTransmit_u8 `uc ~T0 @X0 1 r3 ]
-"259
+"261
 [f ]
-"260
+"262
 [v _i `uc ~T0 @X0 1 a ]
-[; ;uart.c: 260: uint8_t i=0,a[10];
+[; ;uart.c: 262: uint8_t i=0,a[10];
 [e = _i -> -> 0 `i `uc ]
 [v _a `uc ~T0 @X0 -> 10 `i a ]
-[; ;uart.c: 262: if(2u == v_numericSystem_u8)
-"262
-[e $ ! == -> 2 `ui -> _v_numericSystem_u8 `ui 121  ]
-[; ;uart.c: 263: {
-"263
-{
-[; ;uart.c: 264: while(v_numOfDigitsToTransmit_u8!=0)
+[; ;uart.c: 264: if(2u == v_numericSystem_u8)
 "264
-[e $U 122  ]
-[e :U 123 ]
+[e $ ! == -> 2 `ui -> _v_numericSystem_u8 `ui 121  ]
 [; ;uart.c: 265: {
 "265
 {
-[; ;uart.c: 268: i = (((v_number_u32)&((1<<((v_numOfDigitsToTransmit_u8-1)))))!=0u);
-"268
-[e = _i -> -> != & _v_number_u32 -> -> << -> 1 `i - -> _v_numOfDigitsToTransmit_u8 `i -> 1 `i `l `ul -> -> 0 `ui `ul `i `uc ]
-[; ;uart.c: 269: UART_TxChar(((i)+0x30));
-"269
-[e ( _UART_TxChar (1 -> + -> _i `i -> 48 `i `uc ]
-[; ;uart.c: 270: v_numOfDigitsToTransmit_u8--;
+[; ;uart.c: 266: while(v_numOfDigitsToTransmit_u8!=0)
+"266
+[e $U 122  ]
+[e :U 123 ]
+[; ;uart.c: 267: {
+"267
+{
+[; ;uart.c: 270: i = (((v_number_u32)&((1<<((v_numOfDigitsToTransmit_u8-1)))))!=0u);
 "270
-[e -- _v_numOfDigitsToTransmit_u8 -> -> 1 `i `uc ]
+[e = _i -> -> != & _v_number_u32 -> -> << -> 1 `i - -> _v_numOfDigitsToTransmit_u8 `i -> 1 `i `l `ul -> -> 0 `ui `ul `i `uc ]
+[; ;uart.c: 271: UART_TxChar(((i)+0x30));
 "271
+[e ( _UART_TxChar (1 -> + -> _i `i -> 48 `i `uc ]
+[; ;uart.c: 272: v_numOfDigitsToTransmit_u8--;
+"272
+[e -- _v_numOfDigitsToTransmit_u8 -> -> 1 `i `uc ]
+"273
 }
 [e :U 122 ]
-"264
+"266
 [e $ != -> _v_numOfDigitsToTransmit_u8 `i -> 0 `i 123  ]
 [e :U 124 ]
-"272
-}
-[; ;uart.c: 271: }
-[; ;uart.c: 272: }
-[e $U 125  ]
-"273
-[e :U 121 ]
-[; ;uart.c: 273: else if(v_number_u32==0)
-[e $ ! == _v_number_u32 -> -> -> 0 `i `l `ul 126  ]
-[; ;uart.c: 274: {
 "274
-{
-[; ;uart.c: 276: for(i=0;((i<v_numOfDigitsToTransmit_u8) && (i<10u)) ;i++)
+}
+[; ;uart.c: 273: }
+[; ;uart.c: 274: }
+[e $U 125  ]
+"275
+[e :U 121 ]
+[; ;uart.c: 275: else if(v_number_u32==0)
+[e $ ! == _v_number_u32 -> -> -> 0 `i `l `ul 126  ]
+[; ;uart.c: 276: {
 "276
 {
-[e = _i -> -> 0 `i `uc ]
-[e $U 130  ]
-"277
-[e :U 127 ]
-[; ;uart.c: 277: UART_TxChar('0');
-[e ( _UART_TxChar (1 -> -> 48 `ui `uc ]
-"276
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 130 ]
-[e $ && < -> _i `i -> _v_numOfDigitsToTransmit_u8 `i < -> _i `ui -> 10 `ui 127  ]
-[e :U 128 ]
-"277
-}
-"278
-}
-[; ;uart.c: 278: }
-[e $U 131  ]
-"279
-[e :U 126 ]
-[; ;uart.c: 279: else
-[; ;uart.c: 280: {
+[; ;uart.c: 280: UART_TxChar('0');
 "280
-{
-[; ;uart.c: 281: for(i=0;i<v_numOfDigitsToTransmit_u8;i++)
+[e ( _UART_TxChar (1 -> -> 48 `ui `uc ]
 "281
+}
+[; ;uart.c: 281: }
+[e $U 127  ]
+"282
+[e :U 126 ]
+[; ;uart.c: 282: else
+[; ;uart.c: 283: {
+"283
+{
+[; ;uart.c: 284: for(i=0;i<v_numOfDigitsToTransmit_u8;i++)
+"284
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 135  ]
-"282
-[e :U 132 ]
-[; ;uart.c: 282: {
-{
-[; ;uart.c: 285: if(v_number_u32!=0)
+[e $U 131  ]
 "285
-[e $ ! != _v_number_u32 -> -> -> 0 `i `l `ul 136  ]
-[; ;uart.c: 286: {
-"286
+[e :U 128 ]
+[; ;uart.c: 285: {
 {
-[; ;uart.c: 293: a[i]=(uint32_t)(v_number_u32 - (v_numericSystem_u8 * (uint32_t)(v_number_u32/v_numericSystem_u8)));
-"293
-[e = *U + &U _a * -> _i `ux -> -> # *U &U _a `ui `ux -> - _v_number_u32 * -> _v_numericSystem_u8 `ul / _v_number_u32 -> _v_numericSystem_u8 `ul `uc ]
-[; ;uart.c: 294: v_number_u32=v_number_u32/v_numericSystem_u8;
-"294
-[e = _v_number_u32 / _v_number_u32 -> _v_numericSystem_u8 `ul ]
-"295
-}
-[; ;uart.c: 295: }
-[e $U 137  ]
+[; ;uart.c: 288: if(v_number_u32!=0)
+"288
+[e $ ! != _v_number_u32 -> -> -> 0 `i `l `ul 132  ]
+[; ;uart.c: 289: {
+"289
+{
+[; ;uart.c: 296: a[i]=(uint32_t)(v_number_u32 - (v_numericSystem_u8 * (uint32_t)(v_number_u32/v_numericSystem_u8)));
 "296
-[e :U 136 ]
-[; ;uart.c: 296: else if( (v_numOfDigitsToTransmit_u8 == 0xffu) ||
-[; ;uart.c: 297: (v_numOfDigitsToTransmit_u8 > 10u))
+[e = *U + &U _a * -> _i `ux -> -> # *U &U _a `ui `ux -> - _v_number_u32 * -> _v_numericSystem_u8 `ul / _v_number_u32 -> _v_numericSystem_u8 `ul `uc ]
+[; ;uart.c: 297: v_number_u32=v_number_u32/v_numericSystem_u8;
 "297
-[e $ ! || == -> _v_numOfDigitsToTransmit_u8 `ui -> 255 `ui > -> _v_numOfDigitsToTransmit_u8 `ui -> 10 `ui 138  ]
-[; ;uart.c: 298: {
+[e = _v_number_u32 / _v_number_u32 -> _v_numericSystem_u8 `ul ]
 "298
-{
-[; ;uart.c: 301: break;
-"301
+}
+[; ;uart.c: 298: }
 [e $U 133  ]
-"302
-}
-[; ;uart.c: 302: }
-[e $U 139  ]
-"303
-[e :U 138 ]
-[; ;uart.c: 303: else
-[; ;uart.c: 304: {
+"299
+[e :U 132 ]
+[; ;uart.c: 299: else if( (v_numOfDigitsToTransmit_u8 == 0xffu) ||
+[; ;uart.c: 300: (v_numOfDigitsToTransmit_u8 > 10u))
+"300
+[e $ ! || == -> _v_numOfDigitsToTransmit_u8 `ui -> 255 `ui > -> _v_numOfDigitsToTransmit_u8 `ui -> 10 `ui 134  ]
+[; ;uart.c: 301: {
+"301
+{
+[; ;uart.c: 304: break;
 "304
+[e $U 129  ]
+"305
+}
+[; ;uart.c: 305: }
+[e $U 135  ]
+"306
+[e :U 134 ]
+[; ;uart.c: 306: else
+[; ;uart.c: 307: {
+"307
 {
-[; ;uart.c: 308: a[i]=0;
-"308
+[; ;uart.c: 311: a[i]=0;
+"311
 [e = *U + &U _a * -> _i `ux -> -> # *U &U _a `ui `ux -> -> 0 `i `uc ]
-"309
+"312
 }
-[e :U 139 ]
-[e :U 137 ]
-"310
-}
-"281
-[e ++ _i -> -> 1 `i `uc ]
 [e :U 135 ]
-[e $ < -> _i `i -> _v_numOfDigitsToTransmit_u8 `i 132  ]
 [e :U 133 ]
-"310
-}
-[; ;uart.c: 309: }
-[; ;uart.c: 310: }
-[; ;uart.c: 312: while(i)
-"312
-[e $U 140  ]
-[e :U 141 ]
-[; ;uart.c: 313: {
 "313
-{
-[; ;uart.c: 315: UART_TxChar((((a[i-1])>0x09) ? ((a[i-1]) + 0x37): ((a[i-1]) + 0x30)));
-"315
-[e ( _UART_TxChar (1 -> ? > -> *U + &U _a * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux `i -> 9 `i : + -> *U + &U _a * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux `i -> 55 `i + -> *U + &U _a * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux `i -> 48 `i `uc ]
-[; ;uart.c: 316: i--;
-"316
-[e -- _i -> -> 1 `i `uc ]
-"317
 }
-[e :U 140 ]
-"312
-[e $ != -> _i `i -> -> -> 0 `i `uc `i 141  ]
-[e :U 142 ]
-"318
-}
+"284
+[e ++ _i -> -> 1 `i `uc ]
 [e :U 131 ]
-[e :U 125 ]
-[; ;uart.c: 317: }
-[; ;uart.c: 318: }
-[; ;uart.c: 321: }
+[e $ < -> _i `i -> _v_numOfDigitsToTransmit_u8 `i 128  ]
+[e :U 129 ]
+"313
+}
+[; ;uart.c: 312: }
+[; ;uart.c: 313: }
+[; ;uart.c: 315: while(i)
+"315
+[e $U 136  ]
+[e :U 137 ]
+[; ;uart.c: 316: {
+"316
+{
+[; ;uart.c: 318: UART_TxChar((((a[i-1])>0x09) ? ((a[i-1]) + 0x37): ((a[i-1]) + 0x30)));
+"318
+[e ( _UART_TxChar (1 -> ? > -> *U + &U _a * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux `i -> 9 `i : + -> *U + &U _a * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux `i -> 55 `i + -> *U + &U _a * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _a `ui `ux `i -> 48 `i `uc ]
+[; ;uart.c: 319: i--;
+"319
+[e -- _i -> -> 1 `i `uc ]
+"320
+}
+[e :U 136 ]
+"315
+[e $ != -> _i `i -> -> -> 0 `i `uc `i 137  ]
+[e :U 138 ]
 "321
+}
+[e :U 127 ]
+[e :U 125 ]
+[; ;uart.c: 320: }
+[; ;uart.c: 321: }
+[; ;uart.c: 324: }
+"324
 [e :UE 120 ]
 }
-"410
-[v _UART_Printf `(v ~T0 @X0 1 ev`*Cuc ]
-"411
-{
-[; ;uart.c: 410: void UART_Printf(const char *argList, ...)
-[; ;uart.c: 411: {
-[e :U _UART_Printf ]
-"410
-[v _argList `*Cuc ~T0 @X0 1 r0 ]
-"411
-[f ]
-"412
-[v _ptr `*Cuc ~T0 @X0 1 a ]
 "413
-[v _argp `*v ~T0 @X0 -> -> 1 `i `ux a ]
+[v _UART_Printf `(v ~T0 @X0 1 ev`*Cuc ]
 "414
-[v _v_num_s16 `i ~T0 @X0 1 a ]
+{
+[; ;uart.c: 413: void UART_Printf(const char *argList, ...)
+[; ;uart.c: 414: {
+[e :U _UART_Printf ]
+"413
+[v _argList `*Cuc ~T0 @X0 1 r0 ]
+"414
+[f ]
 "415
-[v _v_num_s32 `l ~T0 @X0 1 a ]
+[v _ptr `*Cuc ~T0 @X0 1 a ]
 "416
-[v _v_num_u16 `ui ~T0 @X0 1 a ]
+[v _argp `*v ~T0 @X0 -> -> 1 `i `ux a ]
 "417
-[v _v_num_u32 `ul ~T0 @X0 1 a ]
+[v _v_num_s16 `i ~T0 @X0 1 a ]
 "418
-[v _str `*uc ~T0 @X0 1 a ]
+[v _v_num_s32 `l ~T0 @X0 1 a ]
 "419
-[v _ch `uc ~T0 @X0 1 a ]
+[v _v_num_u16 `ui ~T0 @X0 1 a ]
 "420
+[v _v_num_u32 `ul ~T0 @X0 1 a ]
+"421
+[v _str `*uc ~T0 @X0 1 a ]
+"422
+[v _ch `uc ~T0 @X0 1 a ]
+"423
 [v _v_numOfDigitsToTransmit_u8 `uc ~T0 @X0 1 a ]
-[; ;uart.c: 412: const char *ptr;
-[; ;uart.c: 413: va_list argp;
-[; ;uart.c: 414: sint16_t v_num_s16;
-[; ;uart.c: 415: sint32_t v_num_s32;
-[; ;uart.c: 416: uint16_t v_num_u16;
-[; ;uart.c: 417: uint32_t v_num_u32;
-[; ;uart.c: 418: char *str;
-[; ;uart.c: 419: char ch;
-[; ;uart.c: 420: uint8_t v_numOfDigitsToTransmit_u8;
-[; ;uart.c: 426: *argp = __va_start();
-"426
-[e = *U &U _argp ( ___va_start ..  ]
-[; ;uart.c: 429: for(ptr = argList; *ptr != '\0'; ptr++)
+[; ;uart.c: 415: const char *ptr;
+[; ;uart.c: 416: va_list argp;
+[; ;uart.c: 417: sint16_t v_num_s16;
+[; ;uart.c: 418: sint32_t v_num_s32;
+[; ;uart.c: 419: uint16_t v_num_u16;
+[; ;uart.c: 420: uint32_t v_num_u32;
+[; ;uart.c: 421: char *str;
+[; ;uart.c: 422: char ch;
+[; ;uart.c: 423: uint8_t v_numOfDigitsToTransmit_u8;
+[; ;uart.c: 429: *argp = __va_start();
 "429
+[e = *U &U _argp ( ___va_start ..  ]
+[; ;uart.c: 432: for(ptr = argList; *ptr != '\0'; ptr++)
+"432
 {
 [e = _ptr _argList ]
-[e $U 147  ]
-"430
-[e :U 144 ]
-[; ;uart.c: 430: {
-{
-[; ;uart.c: 432: ch= *ptr;
-"432
-[e = _ch *U _ptr ]
-[; ;uart.c: 433: if(ch == '%')
+[e $U 143  ]
 "433
-[e $ ! == -> _ch `ui -> 37 `ui 148  ]
-[; ;uart.c: 434: {
-"434
+[e :U 140 ]
+[; ;uart.c: 433: {
 {
-[; ;uart.c: 435: ptr++;
+[; ;uart.c: 435: ch= *ptr;
 "435
-[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
-[; ;uart.c: 436: ch = *ptr;
-"436
 [e = _ch *U _ptr ]
-[; ;uart.c: 437: if((ch>=0x30) && (ch<=0x39))
+[; ;uart.c: 436: if(ch == '%')
+"436
+[e $ ! == -> _ch `ui -> 37 `ui 144  ]
+[; ;uart.c: 437: {
 "437
-[e $ ! && >= -> _ch `i -> 48 `i <= -> _ch `i -> 57 `i 149  ]
-[; ;uart.c: 438: {
-"438
 {
-[; ;uart.c: 439: v_numOfDigitsToTransmit_u8 = 0;
+[; ;uart.c: 438: ptr++;
+"438
+[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+[; ;uart.c: 439: ch = *ptr;
 "439
-[e = _v_numOfDigitsToTransmit_u8 -> -> 0 `i `uc ]
-[; ;uart.c: 440: while((ch>=0x30) && (ch<=0x39))
+[e = _ch *U _ptr ]
+[; ;uart.c: 440: if((ch>=0x30) && (ch<=0x39))
 "440
-[e $U 150  ]
-[e :U 151 ]
+[e $ ! && >= -> _ch `i -> 48 `i <= -> _ch `i -> 57 `i 145  ]
 [; ;uart.c: 441: {
 "441
 {
-[; ;uart.c: 442: v_numOfDigitsToTransmit_u8 = (v_numOfDigitsToTransmit_u8 * 10) + (ch-0x30);
+[; ;uart.c: 442: v_numOfDigitsToTransmit_u8 = 0;
 "442
-[e = _v_numOfDigitsToTransmit_u8 -> + * -> _v_numOfDigitsToTransmit_u8 `i -> 10 `i - -> _ch `i -> 48 `i `uc ]
-[; ;uart.c: 443: ptr++;
+[e = _v_numOfDigitsToTransmit_u8 -> -> 0 `i `uc ]
+[; ;uart.c: 443: while((ch>=0x30) && (ch<=0x39))
 "443
-[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
-[; ;uart.c: 444: ch = *ptr;
-"444
-[e = _ch *U _ptr ]
-"445
-}
-[e :U 150 ]
-"440
-[e $ && >= -> _ch `i -> 48 `i <= -> _ch `i -> 57 `i 151  ]
-[e :U 152 ]
-"446
-}
-[; ;uart.c: 445: }
-[; ;uart.c: 446: }
-[e $U 153  ]
-"447
-[e :U 149 ]
-[; ;uart.c: 447: else
-[; ;uart.c: 448: {
-"448
-{
-[; ;uart.c: 449: v_numOfDigitsToTransmit_u8 = 0xffu;
-"449
-[e = _v_numOfDigitsToTransmit_u8 -> -> 255 `ui `uc ]
-"450
-}
-[e :U 153 ]
-[; ;uart.c: 450: }
-[; ;uart.c: 453: switch(ch)
-"453
-[e $U 155  ]
-[; ;uart.c: 454: {
-"454
-{
-[; ;uart.c: 455: case 'C':
-"455
-[e :U 156 ]
-"456
-[e :U 157 ]
-[; ;uart.c: 456: case 'c':
-[; ;uart.c: 457: ch = (*(uint8_t *)__va_arg((*(uint8_t **)argp), (uint8_t)0));
-"457
-[e = _ch *U -> ( ___va_arg , (. -> *U -> &U _argp `**uc `*v -> -> -> 0 `i `uc `i `*uc ]
-[; ;uart.c: 458: UART_TxChar(ch);
-"458
-[e ( _UART_TxChar (1 _ch ]
-[; ;uart.c: 459: break;
-"459
-[e $U 154  ]
-[; ;uart.c: 461: case 'd':
-"461
-[e :U 158 ]
-[; ;uart.c: 462: v_num_s16 = (*(sint16_t *)__va_arg((*(sint16_t **)argp), (sint16_t)0));
-"462
-[e = _v_num_s16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**i `*v -> 0 `i `*i ]
-[; ;uart.c: 463: if(v_num_s16<0)
-"463
-[e $ ! < _v_num_s16 -> 0 `i 159  ]
-[; ;uart.c: 464: {
-"464
-{
-[; ;uart.c: 465: v_num_s16 = -v_num_s16;
-"465
-[e = _v_num_s16 -U _v_num_s16 ]
-[; ;uart.c: 466: UART_TxChar('-');
-"466
-[e ( _UART_TxChar (1 -> -> 45 `ui `uc ]
-"467
-}
-[e :U 159 ]
-[; ;uart.c: 467: }
-[; ;uart.c: 468: UART_TxNumber(10u,v_num_s16,v_numOfDigitsToTransmit_u8);
-"468
-[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc -> -> _v_num_s16 `l `ul _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 469: break;
-"469
-[e $U 154  ]
-[; ;uart.c: 471: case 'D':
-"471
-[e :U 160 ]
-[; ;uart.c: 472: v_num_s32 = (*(sint32_t *)__va_arg((*(sint32_t **)argp), (sint32_t)0));
-"472
-[e = _v_num_s32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**l `*v -> -> 0 `i `l `*l ]
-[; ;uart.c: 473: if(v_num_s32<0)
-"473
-[e $ ! < _v_num_s32 -> -> 0 `i `l 161  ]
-[; ;uart.c: 474: {
-"474
-{
-[; ;uart.c: 475: v_num_s32 = -v_num_s32;
-"475
-[e = _v_num_s32 -U _v_num_s32 ]
-[; ;uart.c: 476: UART_TxChar('-');
-"476
-[e ( _UART_TxChar (1 -> -> 45 `ui `uc ]
-"477
-}
-[e :U 161 ]
-[; ;uart.c: 477: }
-[; ;uart.c: 478: UART_TxNumber(10u,v_num_s32,v_numOfDigitsToTransmit_u8);
-"478
-[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc -> _v_num_s32 `ul _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 479: break;
-"479
-[e $U 154  ]
-[; ;uart.c: 481: case 'u':
-"481
-[e :U 162 ]
-[; ;uart.c: 482: v_num_u16 = (*(uint16_t *)__va_arg((*(uint16_t **)argp), (uint16_t)0));
-"482
-[e = _v_num_u16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ui `*v -> -> 0 `i `ui `*ui ]
-[; ;uart.c: 483: UART_TxNumber(10u,v_num_u16,v_numOfDigitsToTransmit_u8);
-"483
-[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc -> _v_num_u16 `ul _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 484: break;
-"484
-[e $U 154  ]
-[; ;uart.c: 486: case 'U':
-"486
-[e :U 163 ]
-[; ;uart.c: 487: v_num_u32 = (*(uint32_t *)__va_arg((*(uint32_t **)argp), (uint32_t)0));
-"487
-[e = _v_num_u32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ul `*v -> -> 0 `i `ul `*ul ]
-[; ;uart.c: 488: UART_TxNumber(10u,v_num_u32,v_numOfDigitsToTransmit_u8);
-"488
-[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc _v_num_u32 _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 489: break;
-"489
-[e $U 154  ]
-[; ;uart.c: 491: case 'x':
-"491
-[e :U 164 ]
-[; ;uart.c: 492: v_num_u16 = (*(uint16_t *)__va_arg((*(uint16_t **)argp), (uint16_t)0));
-"492
-[e = _v_num_u16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ui `*v -> -> 0 `i `ui `*ui ]
-[; ;uart.c: 493: UART_TxNumber(16u,v_num_u16,v_numOfDigitsToTransmit_u8);
-"493
-[e ( _UART_TxNumber (3 , , -> -> 16 `ui `uc -> _v_num_u16 `ul _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 494: break;
-"494
-[e $U 154  ]
-[; ;uart.c: 496: case 'X':
-"496
-[e :U 165 ]
-[; ;uart.c: 497: v_num_u32 = (*(uint32_t *)__va_arg((*(uint32_t **)argp), (uint32_t)0));
-"497
-[e = _v_num_u32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ul `*v -> -> 0 `i `ul `*ul ]
-[; ;uart.c: 498: UART_TxNumber(16u,v_num_u32,v_numOfDigitsToTransmit_u8);
-"498
-[e ( _UART_TxNumber (3 , , -> -> 16 `ui `uc _v_num_u32 _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 499: break;
-"499
-[e $U 154  ]
-[; ;uart.c: 502: case 'b':
-"502
-[e :U 166 ]
-[; ;uart.c: 503: v_num_u16 = (*(uint16_t *)__va_arg((*(uint16_t **)argp), (uint16_t)0));
-"503
-[e = _v_num_u16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ui `*v -> -> 0 `i `ui `*ui ]
-[; ;uart.c: 505: if(v_numOfDigitsToTransmit_u8 == 0xffu)
-"505
-[e $ ! == -> _v_numOfDigitsToTransmit_u8 `ui -> 255 `ui 167  ]
-[; ;uart.c: 506: v_numOfDigitsToTransmit_u8 = 16;
-"506
-[e = _v_numOfDigitsToTransmit_u8 -> -> 16 `i `uc ]
-[e :U 167 ]
-[; ;uart.c: 508: UART_TxNumber(2u,v_num_u16,v_numOfDigitsToTransmit_u8);
-"508
-[e ( _UART_TxNumber (3 , , -> -> 2 `ui `uc -> _v_num_u16 `ul _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 509: break;
-"509
-[e $U 154  ]
-[; ;uart.c: 511: case 'B':
-"511
-[e :U 168 ]
-[; ;uart.c: 512: v_num_u32 = (*(uint32_t *)__va_arg((*(uint32_t **)argp), (uint32_t)0));
-"512
-[e = _v_num_u32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ul `*v -> -> 0 `i `ul `*ul ]
-[; ;uart.c: 514: if(v_numOfDigitsToTransmit_u8 == 0xffu)
-"514
-[e $ ! == -> _v_numOfDigitsToTransmit_u8 `ui -> 255 `ui 169  ]
-[; ;uart.c: 515: v_numOfDigitsToTransmit_u8 = 32;
-"515
-[e = _v_numOfDigitsToTransmit_u8 -> -> 32 `i `uc ]
-[e :U 169 ]
-[; ;uart.c: 517: UART_TxNumber(2u,v_num_u32,v_numOfDigitsToTransmit_u8);
-"517
-[e ( _UART_TxNumber (3 , , -> -> 2 `ui `uc _v_num_u32 _v_numOfDigitsToTransmit_u8 ]
-[; ;uart.c: 518: break;
-"518
-[e $U 154  ]
-[; ;uart.c: 521: case 'F':
-"521
-[e :U 170 ]
-"522
-[e :U 171 ]
-[; ;uart.c: 522: case 'f':
-[; ;uart.c: 527: break;
-"527
-[e $U 154  ]
-[; ;uart.c: 530: case 'S':
-"530
-[e :U 172 ]
-"531
-[e :U 173 ]
-[; ;uart.c: 531: case 's':
-[; ;uart.c: 532: str = (*(char * *)__va_arg((*(char * **)argp), (char *)0));
-"532
-[e = _str *U -> ( ___va_arg , (. -> *U -> &U _argp `***uc `*v -> -> 0 `i `*uc `**uc ]
-[; ;uart.c: 533: UART_TxString(str);
-"533
-[e ( _UART_TxString (1 _str ]
-[; ;uart.c: 534: break;
-"534
-[e $U 154  ]
-[; ;uart.c: 536: case '%':
-"536
-[e :U 174 ]
-[; ;uart.c: 537: UART_TxChar('%');
-"537
-[e ( _UART_TxChar (1 -> -> 37 `ui `uc ]
-[; ;uart.c: 538: break;
-"538
-[e $U 154  ]
-"539
-}
-[; ;uart.c: 539: }
-[e $U 154  ]
-"453
-[e :U 155 ]
-[e [\ _ch , $ -> -> 67 `ui `uc 156
- , $ -> -> 99 `ui `uc 157
- , $ -> -> 100 `ui `uc 158
- , $ -> -> 68 `ui `uc 160
- , $ -> -> 117 `ui `uc 162
- , $ -> -> 85 `ui `uc 163
- , $ -> -> 120 `ui `uc 164
- , $ -> -> 88 `ui `uc 165
- , $ -> -> 98 `ui `uc 166
- , $ -> -> 66 `ui `uc 168
- , $ -> -> 70 `ui `uc 170
- , $ -> -> 102 `ui `uc 171
- , $ -> -> 83 `ui `uc 172
- , $ -> -> 115 `ui `uc 173
- , $ -> -> 37 `ui `uc 174
- 154 ]
-"539
-[e :U 154 ]
-"540
-}
-[; ;uart.c: 540: }
-[e $U 175  ]
-"541
-[e :U 148 ]
-[; ;uart.c: 541: else
-[; ;uart.c: 542: {
-"542
-{
-[; ;uart.c: 544: UART_TxChar(ch);
-"544
-[e ( _UART_TxChar (1 _ch ]
-"545
-}
-[e :U 175 ]
-"546
-}
-"429
-[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+[e $U 146  ]
 [e :U 147 ]
-[e $ != -> *U _ptr `ui -> 0 `ui 144  ]
+[; ;uart.c: 444: {
+"444
+{
+[; ;uart.c: 445: v_numOfDigitsToTransmit_u8 = (v_numOfDigitsToTransmit_u8 * 10) + (ch-0x30);
+"445
+[e = _v_numOfDigitsToTransmit_u8 -> + * -> _v_numOfDigitsToTransmit_u8 `i -> 10 `i - -> _ch `i -> 48 `i `uc ]
+[; ;uart.c: 446: ptr++;
+"446
+[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+[; ;uart.c: 447: ch = *ptr;
+"447
+[e = _ch *U _ptr ]
+"448
+}
+[e :U 146 ]
+"443
+[e $ && >= -> _ch `i -> 48 `i <= -> _ch `i -> 57 `i 147  ]
+[e :U 148 ]
+"449
+}
+[; ;uart.c: 448: }
+[; ;uart.c: 449: }
+[e $U 149  ]
+"450
 [e :U 145 ]
-"546
+[; ;uart.c: 450: else
+[; ;uart.c: 451: {
+"451
+{
+[; ;uart.c: 452: v_numOfDigitsToTransmit_u8 = 0xffu;
+"452
+[e = _v_numOfDigitsToTransmit_u8 -> -> 255 `ui `uc ]
+"453
 }
-[; ;uart.c: 545: }
-[; ;uart.c: 546: }
-[; ;uart.c: 548: ;
-[; ;uart.c: 549: }
+[e :U 149 ]
+[; ;uart.c: 453: }
+[; ;uart.c: 456: switch(ch)
+"456
+[e $U 151  ]
+[; ;uart.c: 457: {
+"457
+{
+[; ;uart.c: 458: case 'C':
+"458
+[e :U 152 ]
+"459
+[e :U 153 ]
+[; ;uart.c: 459: case 'c':
+[; ;uart.c: 460: ch = (*(uint8_t *)__va_arg((*(uint8_t **)argp), (uint8_t)0));
+"460
+[e = _ch *U -> ( ___va_arg , (. -> *U -> &U _argp `**uc `*v -> -> -> 0 `i `uc `i `*uc ]
+[; ;uart.c: 461: UART_TxChar(ch);
+"461
+[e ( _UART_TxChar (1 _ch ]
+[; ;uart.c: 462: break;
+"462
+[e $U 150  ]
+[; ;uart.c: 464: case 'd':
+"464
+[e :U 154 ]
+[; ;uart.c: 465: v_num_s16 = (*(sint16_t *)__va_arg((*(sint16_t **)argp), (sint16_t)0));
+"465
+[e = _v_num_s16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**i `*v -> 0 `i `*i ]
+[; ;uart.c: 466: if(v_num_s16<0)
+"466
+[e $ ! < _v_num_s16 -> 0 `i 155  ]
+[; ;uart.c: 467: {
+"467
+{
+[; ;uart.c: 468: v_num_s16 = -v_num_s16;
+"468
+[e = _v_num_s16 -U _v_num_s16 ]
+[; ;uart.c: 469: UART_TxChar('-');
+"469
+[e ( _UART_TxChar (1 -> -> 45 `ui `uc ]
+"470
+}
+[e :U 155 ]
+[; ;uart.c: 470: }
+[; ;uart.c: 471: UART_TxNumber(10u,v_num_s16,v_numOfDigitsToTransmit_u8);
+"471
+[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc -> -> _v_num_s16 `l `ul _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 472: break;
+"472
+[e $U 150  ]
+[; ;uart.c: 474: case 'D':
+"474
+[e :U 156 ]
+[; ;uart.c: 475: v_num_s32 = (*(sint32_t *)__va_arg((*(sint32_t **)argp), (sint32_t)0));
+"475
+[e = _v_num_s32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**l `*v -> -> 0 `i `l `*l ]
+[; ;uart.c: 476: if(v_num_s32<0)
+"476
+[e $ ! < _v_num_s32 -> -> 0 `i `l 157  ]
+[; ;uart.c: 477: {
+"477
+{
+[; ;uart.c: 478: v_num_s32 = -v_num_s32;
+"478
+[e = _v_num_s32 -U _v_num_s32 ]
+[; ;uart.c: 479: UART_TxChar('-');
+"479
+[e ( _UART_TxChar (1 -> -> 45 `ui `uc ]
+"480
+}
+[e :U 157 ]
+[; ;uart.c: 480: }
+[; ;uart.c: 481: UART_TxNumber(10u,v_num_s32,v_numOfDigitsToTransmit_u8);
+"481
+[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc -> _v_num_s32 `ul _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 482: break;
+"482
+[e $U 150  ]
+[; ;uart.c: 484: case 'u':
+"484
+[e :U 158 ]
+[; ;uart.c: 485: v_num_u16 = (*(uint16_t *)__va_arg((*(uint16_t **)argp), (uint16_t)0));
+"485
+[e = _v_num_u16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ui `*v -> -> 0 `i `ui `*ui ]
+[; ;uart.c: 486: UART_TxNumber(10u,v_num_u16,v_numOfDigitsToTransmit_u8);
+"486
+[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc -> _v_num_u16 `ul _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 487: break;
+"487
+[e $U 150  ]
+[; ;uart.c: 489: case 'U':
+"489
+[e :U 159 ]
+[; ;uart.c: 490: v_num_u32 = (*(uint32_t *)__va_arg((*(uint32_t **)argp), (uint32_t)0));
+"490
+[e = _v_num_u32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ul `*v -> -> 0 `i `ul `*ul ]
+[; ;uart.c: 491: UART_TxNumber(10u,v_num_u32,v_numOfDigitsToTransmit_u8);
+"491
+[e ( _UART_TxNumber (3 , , -> -> 10 `ui `uc _v_num_u32 _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 492: break;
+"492
+[e $U 150  ]
+[; ;uart.c: 494: case 'x':
+"494
+[e :U 160 ]
+[; ;uart.c: 495: v_num_u16 = (*(uint16_t *)__va_arg((*(uint16_t **)argp), (uint16_t)0));
+"495
+[e = _v_num_u16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ui `*v -> -> 0 `i `ui `*ui ]
+[; ;uart.c: 496: UART_TxNumber(16u,v_num_u16,v_numOfDigitsToTransmit_u8);
+"496
+[e ( _UART_TxNumber (3 , , -> -> 16 `ui `uc -> _v_num_u16 `ul _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 497: break;
+"497
+[e $U 150  ]
+[; ;uart.c: 499: case 'X':
+"499
+[e :U 161 ]
+[; ;uart.c: 500: v_num_u32 = (*(uint32_t *)__va_arg((*(uint32_t **)argp), (uint32_t)0));
+"500
+[e = _v_num_u32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ul `*v -> -> 0 `i `ul `*ul ]
+[; ;uart.c: 501: UART_TxNumber(16u,v_num_u32,v_numOfDigitsToTransmit_u8);
+"501
+[e ( _UART_TxNumber (3 , , -> -> 16 `ui `uc _v_num_u32 _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 502: break;
+"502
+[e $U 150  ]
+[; ;uart.c: 505: case 'b':
+"505
+[e :U 162 ]
+[; ;uart.c: 506: v_num_u16 = (*(uint16_t *)__va_arg((*(uint16_t **)argp), (uint16_t)0));
+"506
+[e = _v_num_u16 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ui `*v -> -> 0 `i `ui `*ui ]
+[; ;uart.c: 508: if(v_numOfDigitsToTransmit_u8 == 0xffu)
+"508
+[e $ ! == -> _v_numOfDigitsToTransmit_u8 `ui -> 255 `ui 163  ]
+[; ;uart.c: 509: v_numOfDigitsToTransmit_u8 = 16;
+"509
+[e = _v_numOfDigitsToTransmit_u8 -> -> 16 `i `uc ]
+[e :U 163 ]
+[; ;uart.c: 511: UART_TxNumber(2u,v_num_u16,v_numOfDigitsToTransmit_u8);
+"511
+[e ( _UART_TxNumber (3 , , -> -> 2 `ui `uc -> _v_num_u16 `ul _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 512: break;
+"512
+[e $U 150  ]
+[; ;uart.c: 514: case 'B':
+"514
+[e :U 164 ]
+[; ;uart.c: 515: v_num_u32 = (*(uint32_t *)__va_arg((*(uint32_t **)argp), (uint32_t)0));
+"515
+[e = _v_num_u32 *U -> ( ___va_arg , (. -> *U -> &U _argp `**ul `*v -> -> 0 `i `ul `*ul ]
+[; ;uart.c: 517: if(v_numOfDigitsToTransmit_u8 == 0xffu)
+"517
+[e $ ! == -> _v_numOfDigitsToTransmit_u8 `ui -> 255 `ui 165  ]
+[; ;uart.c: 518: v_numOfDigitsToTransmit_u8 = 32;
+"518
+[e = _v_numOfDigitsToTransmit_u8 -> -> 32 `i `uc ]
+[e :U 165 ]
+[; ;uart.c: 520: UART_TxNumber(2u,v_num_u32,v_numOfDigitsToTransmit_u8);
+"520
+[e ( _UART_TxNumber (3 , , -> -> 2 `ui `uc _v_num_u32 _v_numOfDigitsToTransmit_u8 ]
+[; ;uart.c: 521: break;
+"521
+[e $U 150  ]
+[; ;uart.c: 524: case 'F':
+"524
+[e :U 166 ]
+"525
+[e :U 167 ]
+[; ;uart.c: 525: case 'f':
+[; ;uart.c: 530: break;
+"530
+[e $U 150  ]
+[; ;uart.c: 533: case 'S':
+"533
+[e :U 168 ]
+"534
+[e :U 169 ]
+[; ;uart.c: 534: case 's':
+[; ;uart.c: 535: str = (*(char * *)__va_arg((*(char * **)argp), (char *)0));
+"535
+[e = _str *U -> ( ___va_arg , (. -> *U -> &U _argp `***uc `*v -> -> 0 `i `*uc `**uc ]
+[; ;uart.c: 536: UART_TxString(str);
+"536
+[e ( _UART_TxString (1 -> _str `*Cuc ]
+[; ;uart.c: 537: break;
+"537
+[e $U 150  ]
+[; ;uart.c: 539: case '%':
+"539
+[e :U 170 ]
+[; ;uart.c: 540: UART_TxChar('%');
+"540
+[e ( _UART_TxChar (1 -> -> 37 `ui `uc ]
+[; ;uart.c: 541: break;
+"541
+[e $U 150  ]
+"542
+}
+[; ;uart.c: 542: }
+[e $U 150  ]
+"456
+[e :U 151 ]
+[e [\ _ch , $ -> -> 67 `ui `uc 152
+ , $ -> -> 99 `ui `uc 153
+ , $ -> -> 100 `ui `uc 154
+ , $ -> -> 68 `ui `uc 156
+ , $ -> -> 117 `ui `uc 158
+ , $ -> -> 85 `ui `uc 159
+ , $ -> -> 120 `ui `uc 160
+ , $ -> -> 88 `ui `uc 161
+ , $ -> -> 98 `ui `uc 162
+ , $ -> -> 66 `ui `uc 164
+ , $ -> -> 70 `ui `uc 166
+ , $ -> -> 102 `ui `uc 167
+ , $ -> -> 83 `ui `uc 168
+ , $ -> -> 115 `ui `uc 169
+ , $ -> -> 37 `ui `uc 170
+ 150 ]
+"542
+[e :U 150 ]
+"543
+}
+[; ;uart.c: 543: }
+[e $U 171  ]
+"544
+[e :U 144 ]
+[; ;uart.c: 544: else
+[; ;uart.c: 545: {
+"545
+{
+[; ;uart.c: 547: UART_TxChar(ch);
+"547
+[e ( _UART_TxChar (1 _ch ]
+"548
+}
+[e :U 171 ]
 "549
-[e :UE 143 ]
 }
-"553
+"432
+[e ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+[e :U 143 ]
+[e $ != -> *U _ptr `ui -> 0 `ui 140  ]
+[e :U 141 ]
+"549
+}
+[; ;uart.c: 548: }
+[; ;uart.c: 549: }
+[; ;uart.c: 551: ;
+[; ;uart.c: 552: }
+"552
+[e :UE 139 ]
+}
+"556
 [p o ]
